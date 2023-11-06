@@ -1,6 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { useContext } from "react";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
 
     const navLinks =
 
@@ -8,6 +12,17 @@ const Navbar = () => {
             <NavLink to={'/'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-[#36D399] rounded hover:bg-[#36D399] hover:text-black' : ''}><li className="font-bold"><a>Home</a></li></NavLink>
             <NavLink to={'/services'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-[#36D399] rounded hover:bg-[#36D399] hover:text-black' : ''}><li className="font-bold"><a>Services</a></li></NavLink>
         </>
+
+    const handleLogOut = () => {
+        logOut()
+            .then(userCredentials => {
+                toast.success('You logged out successfully!')
+                console.log(userCredentials.user);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
 
 
     return (
@@ -56,9 +71,17 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to={'/login'}>
-                    <a className="btn btn-success normal-case">Login</a>
-                </Link>
+                {
+                    user
+                        ?
+                        <Link to={'/login'} onClick={handleLogOut}>
+                            <a className="btn btn-success normal-case">Logout</a>
+                        </Link>
+                        :
+                        <Link to={'/login'}>
+                            <a className="btn btn-success normal-case">Login</a>
+                        </Link>
+                }
             </div>
         </div>
     );

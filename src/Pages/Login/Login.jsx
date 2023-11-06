@@ -1,6 +1,49 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
+    const { login, googleLogIn } = useContext(AuthContext);
+
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log(email, password);
+
+        login(email, password)
+            .then(userCredentials => {
+                console.log(userCredentials.user);
+                e.target.reset();
+                navigate(location?.state ? location.state : '/');
+                toast.success('You logged in successfully!');
+
+            })
+            .catch(error => {
+                toast.error(error.message);
+            })
+
+    }
+
+    const handleGoogleLogIn = () => {
+        googleLogIn()
+            .then(userCredentials => {
+                console.log(userCredentials.user);
+                toast.success('You logged in successfully!');
+                navigate(location?.state ? location.state : '/');
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
+
     return (
         <div>
             <div className="text-center pt-20">
@@ -9,18 +52,18 @@ const Login = () => {
             <div>
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form className="card-body">
+                        <form onSubmit={handleLogin} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" placeholder="email" className="input input-bordered" required />
+                                <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="password" className="input input-bordered" required />
+                                <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-success normal-case">Login</button>
@@ -33,7 +76,7 @@ const Login = () => {
                                     </Link>
                                 </p>
                                 <div className="text-center">
-                                    <button className="btn normal-case border-2 border-[#36D399] hover:border-[#36D399] hover:bg-none w-full my-4 text-black">Sign in with Google</button>
+                                    <button onClick={handleGoogleLogIn} className="btn normal-case border-2 border-[#36D399] hover:border-[#36D399] hover:bg-none w-full my-4 text-black">Login with Google</button>
                                 </div>
                             </div>
                         </form>
@@ -41,6 +84,7 @@ const Login = () => {
                     <img src="https://i.ibb.co/fSgBzS3/local-tours-login-register.jpg" alt="" />
                 </div>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

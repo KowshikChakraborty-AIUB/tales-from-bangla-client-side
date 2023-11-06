@@ -4,6 +4,8 @@ import Home from "../Pages/Home/Home";
 import Services from "../Pages/Services/Services";
 import PageNotFound from "../Pages/Page Not Found/PageNotFound";
 import SingleServiceDetails from "../Pages/Single Service Details/SingleServiceDetails";
+import Login from "../Pages/Login/Login";
+import SignUp from "../Pages/Sign Up/SignUp";
 
 const routes = createBrowserRouter([
 
@@ -26,6 +28,14 @@ const routes = createBrowserRouter([
                 path: '/single-service-details/:id',
                 element: <SingleServiceDetails></SingleServiceDetails>,
                 loader: () => fetch('http://localhost:5000/services')
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/signUp',
+                element: <SignUp></SignUp>
             }
         ]
     }

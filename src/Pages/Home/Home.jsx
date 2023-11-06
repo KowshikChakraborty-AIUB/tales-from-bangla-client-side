@@ -1,5 +1,6 @@
 import AboutUs from "../../components/About Us/AboutUs";
 import Banner from "../../components/Banner/Banner";
+import DownloadMobileApp from "../../components/Download Mobile App/DownloadMobileApp";
 import WellKnownServices from "../../components/Well Known Services/WellKnownServices";
 import { Link, useLoaderData } from "react-router-dom";
 
@@ -28,6 +29,7 @@ const Home = () => {
                 </div>
 
             </div>
+            <DownloadMobileApp></DownloadMobileApp>
         </div>
     );
 };

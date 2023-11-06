@@ -5,7 +5,7 @@ const Footer = () => {
                 <aside>
                     <div className="flex items-center gap-2">
                         <img className="h-16 rounded-full" src="https://i.ibb.co/g64cB9S/tales-from-bangla-logo.jpg" alt="" />
-                        <p className="font-bold text-xl"><span className="text-green-600">Tales</span> From <span className="text-red-600">Bangla</span></p>
+                        <p className="font-bold text-xl"><span className="text-[#36D399]">Tales</span> From <span className="text-red-500">Bangla</span></p>
                     </div>
                     <div className="font-bold text-base py-5">
                         <p>Address: Shyampur, Kadamtali, Faridabad, Dhaka-1204</p>

@@ -5,8 +5,8 @@ const Navbar = () => {
     const navLinks =
 
         <>
-            <NavLink to={'/'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-green-600 rounded hover:bg-green-600 hover:text-black' : ''}><li className="font-bold"><a>Home</a></li></NavLink>
-            <NavLink to={'/services'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-green-600 rounded hover:bg-green-600 hover:text-black' : ''}><li className="font-bold"><a>Services</a></li></NavLink>
+            <NavLink to={'/'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-[#36D399] rounded hover:bg-[#36D399] hover:text-black' : ''}><li className="font-bold"><a>Home</a></li></NavLink>
+            <NavLink to={'/services'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-[#36D399] rounded hover:bg-[#36D399] hover:text-black' : ''}><li className="font-bold"><a>Services</a></li></NavLink>
         </>
 
 
@@ -20,7 +20,7 @@ const Navbar = () => {
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         {navLinks}
                         <li>
-                            <NavLink to={'/services'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-green-600 rounded hover:bg-green-600 hover:text-black' : ''}><a className="font-bold">Dashboard</a></NavLink>
+                            <NavLink to={'/services'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-[#36D399] rounded hover:bg-[#36D399] hover:text-black' : ''}><a className="font-bold">Dashboard</a></NavLink>
                             <ul className="p-2">
                                 <NavLink to={'/my-services'}><li><a className="font-bold">My Services</a></li></NavLink>
                                 <NavLink to={'/add-services'}><li><a className="font-bold">Add Services</a></li></NavLink>
@@ -31,7 +31,7 @@ const Navbar = () => {
                 </div>
                 <div className="flex items-center gap-2">
                     <img className="h-16 rounded-full" src="https://i.ibb.co/g64cB9S/tales-from-bangla-logo.jpg" alt="" />
-                    <p className="normal-case text-xl font-bold"><span className="text-green-600">Tales</span> From <span className="text-red-600">Bangla</span></p>
+                    <p className="normal-case text-xl font-bold"><span className="text-[#36D399]">Tales</span> From <span className="text-red-500">Bangla</span></p>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -40,7 +40,7 @@ const Navbar = () => {
                     <li tabIndex={0}>
                         <details>
                             <summary className="font-bold">
-                                <NavLink to={'/services'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-green-600 rounded hover:bg-green-600 hover:text-black' : ''}>
+                                <NavLink to={'/my-services'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-[#36D399] rounded hover:bg-[#36D399] hover:text-black' : ''}>
                                 <div>
                                     Dashboard
                                 </div>

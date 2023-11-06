@@ -50,7 +50,7 @@ const Login = () => {
                 <h1 className="text-5xl font-bold">Login now to feel the adventure!</h1>
             </div>
             <div>
-                <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="hero-content flex-col-reverse lg:flex-row-reverse">
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleLogin} className="card-body">
                             <div className="form-control">
@@ -81,7 +81,9 @@ const Login = () => {
                             </div>
                         </form>
                     </div>
-                    <img src="https://i.ibb.co/fSgBzS3/local-tours-login-register.jpg" alt="" />
+                    <div>
+                        <img src="https://i.ibb.co/fSgBzS3/local-tours-login-register.jpg" alt="" />
+                    </div>
                 </div>
             </div>
             <ToastContainer></ToastContainer>

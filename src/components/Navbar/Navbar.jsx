@@ -74,6 +74,29 @@ const Navbar = () => {
                 {
                     user
                         ?
+                        <div className="dropdown dropdown-end">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={user.photoURL ? user.photoURL : 'https://i.ibb.co/j4rcpWk/user-default.png'} />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                                <li>
+                                    {user.displayName}
+                                </li>
+                                <li>
+                                    <Link to={'/login'} onClick={handleLogOut}>
+                                        <a >Logout</a>
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                        :
+                        ''
+                }
+                {
+                    user
+                        ?
                         <Link to={'/login'} onClick={handleLogOut}>
                             <a className="btn btn-success normal-case">Logout</a>
                         </Link>

@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ManageServices = () => {
     const [services, setServices] = useState([]);
@@ -14,6 +15,25 @@ const ManageServices = () => {
                 setServices(data);
             })
     }, [user.email])
+
+    const handleDelete = (id) => {
+        console.log(id);
+        fetch(`http://localhost:5000/services/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    Swal.fire({
+                        title: "Your service is deleted successfully!",
+                        icon: "success"
+                    });
+                }
+
+                const remainingServices = services.filter(serviceRemaining => serviceRemaining._id !== id);
+                setServices(remainingServices);
+            })
+    }
 
 
     return (
@@ -35,7 +55,7 @@ const ManageServices = () => {
                                         <Link to={`/updateManageServices/${service._id}`}>
                                             <button className="btn btn-success normal-case">Edit</button>
                                         </Link>
-                                        <button className="btn btn-success normal-case">Delete</button>
+                                        <button onClick={() => handleDelete(service._id)} className="btn btn-success normal-case">Delete</button>
                                     </div>
                                 </div>
                             </div>

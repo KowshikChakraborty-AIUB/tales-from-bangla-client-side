@@ -7,6 +7,7 @@ import SingleServiceDetails from "../Pages/Single Service Details/SingleServiceD
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/Sign Up/SignUp";
 import MySchedules from "../Pages/My Schedules/MySchedules";
+import AddServices from "../Pages/Add Services/AddServices";
 
 const routes = createBrowserRouter([
 
@@ -41,6 +42,10 @@ const routes = createBrowserRouter([
             {
                 path: '/mySchedules',
                 element: <MySchedules></MySchedules>
+            },
+            {
+                path: 'addServices',
+                element: <AddServices></AddServices>
             }
         ]
     }

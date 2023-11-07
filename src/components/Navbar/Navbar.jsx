@@ -11,6 +11,13 @@ const Navbar = () => {
         <>
             <NavLink to={'/'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-[#36D399] rounded hover:bg-[#36D399] hover:text-black' : ''}><li className="font-bold"><a>Home</a></li></NavLink>
             <NavLink to={'/services'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-[#36D399] rounded hover:bg-[#36D399] hover:text-black' : ''}><li className="font-bold"><a>Services</a></li></NavLink>
+            {
+                user
+                    ?
+                    <NavLink to={'/manageServices'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-[#36D399] rounded hover:bg-[#36D399] hover:text-black' : ''}><li className="font-bold"><a>Manage Services</a></li></NavLink>
+                    :
+                    ''
+            }
         </>
 
     const handleLogOut = () => {

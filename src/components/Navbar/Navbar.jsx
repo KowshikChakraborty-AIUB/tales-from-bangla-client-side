@@ -39,11 +39,11 @@ const Navbar = () => {
                                 ?
 
                                 <li>
-                                    <NavLink to={'/services'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-[#36D399] rounded hover:bg-[#36D399] hover:text-black' : ''}><a className="font-bold">Dashboard</a></NavLink>
+                                    <NavLink to={'/myServices'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-[#36D399] rounded hover:bg-[#36D399] hover:text-black' : ''}><a className="font-bold">Dashboard</a></NavLink>
                                     <ul className="p-2">
-                                        <NavLink to={'/my-services'}><li><a className="font-bold">My Services</a></li></NavLink>
-                                        <NavLink to={'/add-services'}><li><a className="font-bold">Add Services</a></li></NavLink>
-                                        <NavLink to={'/my-schedules'}><li><a className="font-bold">My Schedules</a></li></NavLink>
+                                        <NavLink to={'/myServices'}><li><a className="font-bold">My Services</a></li></NavLink>
+                                        <NavLink to={'/addServices'}><li><a className="font-bold">Add Services</a></li></NavLink>
+                                        <NavLink to={'/mySchedules'}><li><a className="font-bold">My Schedules</a></li></NavLink>
                                     </ul>
                                 </li>
                                 :
@@ -66,16 +66,16 @@ const Navbar = () => {
                             <li tabIndex={0}>
                                 <details>
                                     <summary className="font-bold">
-                                        <NavLink to={'/my-services'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-[#36D399] rounded hover:bg-[#36D399] hover:text-black' : ''}>
+                                        <NavLink to={'/myServices'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-[#36D399] rounded hover:bg-[#36D399] hover:text-black' : ''}>
                                             <div>
                                                 Dashboard
                                             </div>
                                         </NavLink>
                                     </summary>
                                     <ul className="p-2">
-                                        <NavLink to={'/my-services'}><li><a className="font-bold">My Services</a></li></NavLink>
-                                        <NavLink to={'/add-services'}><li><a className="font-bold">Add Services</a></li></NavLink>
-                                        <NavLink to={'/my-schedules'}><li><a className="font-bold">My Schedules</a></li></NavLink>
+                                        <NavLink to={'/myServices'}><li><a className="font-bold">My Services</a></li></NavLink>
+                                        <NavLink to={'/addServices'}><li><a className="font-bold">Add Services</a></li></NavLink>
+                                        <NavLink to={'/mySchedules'}><li><a className="font-bold">My Schedules</a></li></NavLink>
                                     </ul>
                                 </details>
                             </li>

@@ -34,14 +34,21 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         {navLinks}
-                        <li>
-                            <NavLink to={'/services'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-[#36D399] rounded hover:bg-[#36D399] hover:text-black' : ''}><a className="font-bold">Dashboard</a></NavLink>
-                            <ul className="p-2">
-                                <NavLink to={'/my-services'}><li><a className="font-bold">My Services</a></li></NavLink>
-                                <NavLink to={'/add-services'}><li><a className="font-bold">Add Services</a></li></NavLink>
-                                <NavLink to={'/my-schedules'}><li><a className="font-bold">My Schedules</a></li></NavLink>
-                            </ul>
-                        </li>
+                        {
+                            user
+                                ?
+
+                                <li>
+                                    <NavLink to={'/services'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-[#36D399] rounded hover:bg-[#36D399] hover:text-black' : ''}><a className="font-bold">Dashboard</a></NavLink>
+                                    <ul className="p-2">
+                                        <NavLink to={'/my-services'}><li><a className="font-bold">My Services</a></li></NavLink>
+                                        <NavLink to={'/add-services'}><li><a className="font-bold">Add Services</a></li></NavLink>
+                                        <NavLink to={'/my-schedules'}><li><a className="font-bold">My Schedules</a></li></NavLink>
+                                    </ul>
+                                </li>
+                                :
+                                ''
+                        }
                     </ul>
                 </div>
                 <div className="flex items-center gap-2">
@@ -52,22 +59,29 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     {navLinks}
-                    <li tabIndex={0}>
-                        <details>
-                            <summary className="font-bold">
-                                <NavLink to={'/my-services'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-[#36D399] rounded hover:bg-[#36D399] hover:text-black' : ''}>
-                                    <div>
-                                        Dashboard
-                                    </div>
-                                </NavLink>
-                            </summary>
-                            <ul className="p-2">
-                                <NavLink to={'/my-services'}><li><a className="font-bold">My Services</a></li></NavLink>
-                                <NavLink to={'/add-services'}><li><a className="font-bold">Add Services</a></li></NavLink>
-                                <NavLink to={'/my-schedules'}><li><a className="font-bold">My Schedules</a></li></NavLink>
-                            </ul>
-                        </details>
-                    </li>
+                    {
+                        user
+                            ?
+
+                            <li tabIndex={0}>
+                                <details>
+                                    <summary className="font-bold">
+                                        <NavLink to={'/my-services'} className={({ isActive, isPending }) => isPending ? 'Pending' : isActive ? 'border-2 border-[#36D399] rounded hover:bg-[#36D399] hover:text-black' : ''}>
+                                            <div>
+                                                Dashboard
+                                            </div>
+                                        </NavLink>
+                                    </summary>
+                                    <ul className="p-2">
+                                        <NavLink to={'/my-services'}><li><a className="font-bold">My Services</a></li></NavLink>
+                                        <NavLink to={'/add-services'}><li><a className="font-bold">Add Services</a></li></NavLink>
+                                        <NavLink to={'/my-schedules'}><li><a className="font-bold">My Schedules</a></li></NavLink>
+                                    </ul>
+                                </details>
+                            </li>
+                            :
+                            ''
+                    }
                 </ul>
             </div>
             <div className="navbar-end">

@@ -11,6 +11,7 @@ import AddServices from "../Pages/Add Services/AddServices";
 import MyServices from "../Pages/My Services/MyServices";
 import PrivateRoutes from "./PrivateRoutes";
 import ManageServices from "../Pages/Manage Services/ManageServices";
+import UpdateManageServices from "../Pages/Update Manage Services/UpdateManageServices";
 
 const routes = createBrowserRouter([
 
@@ -57,6 +58,11 @@ const routes = createBrowserRouter([
             {
                 path: '/manageServices',
                 element: <PrivateRoutes><ManageServices></ManageServices></PrivateRoutes>
+            },
+            {
+                path: '/updateManageServices/:id',
+                element: <PrivateRoutes><UpdateManageServices></UpdateManageServices></PrivateRoutes>,
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
             }
         ]
     }

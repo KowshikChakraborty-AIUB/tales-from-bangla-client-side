@@ -8,7 +8,7 @@ const MyServices = () => {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${user.email}`)
+        fetch(`http://localhost:5000/services/myServices?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setServices(data);

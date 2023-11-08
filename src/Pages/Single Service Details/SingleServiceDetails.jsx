@@ -2,8 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from 'sweetalert2';
+import OtherServicesByProvider from "../../components/Other Services By Provider/OtherServicesByProvider";
 const SingleServiceDetails = () => {
     const [singleService, setSingleService] = useState({})
+    const [otherServices, setOtherServices] = useState([])
 
     const { user } = useContext(AuthContext);
 
@@ -44,6 +46,14 @@ const SingleServiceDetails = () => {
                 }
             })
     }
+
+    useEffect(() => {
+        const otherServicesByEmail = singleServiceData.filter(service => service?.service_provider_email === singleService?.service_provider_email)
+            setOtherServices(otherServicesByEmail);
+            console.log(otherServicesByEmail);
+    }, [singleService.service_provider_email, singleServiceData])
+
+   // console.log(otherServices);
 
     return (
         <div>
@@ -92,6 +102,19 @@ const SingleServiceDetails = () => {
                             </div>
                         </dialog>
                     </div>
+                </div>
+            </div>
+
+            <div>
+            <p className={`text-3xl font-bold text-center py-20 ${otherServices.length === 0 && 'hidden'}`}>Also see other services of this provider</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {
+                        otherServices.length === 0
+                            ?
+                            ''
+                            :
+                            otherServices?.map(otherService => <OtherServicesByProvider key={otherService._id} otherService={otherService}></OtherServicesByProvider>)
+                    }
                 </div>
             </div>
         </div>

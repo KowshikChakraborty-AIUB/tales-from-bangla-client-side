@@ -9,7 +9,7 @@ const ManageServices = () => {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/myServices?email=${user.email}`)
+        fetch(`http://localhost:5000/services/myServices?email=${user.email}`, {credentials: 'include'})
             .then(res => res.json())
             .then(data => {
                 setServices(data);

@@ -29,7 +29,7 @@ const SingleServiceDetails = () => {
 
         const bookings = { serviceImage, serviceName, userEmail, bookingDate, userAddress }
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://local-tours-and-guide-server-side.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

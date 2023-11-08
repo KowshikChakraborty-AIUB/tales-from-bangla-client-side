@@ -46,25 +46,25 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             const userEmail = currentUser?.email || user?.email;
-            const loggedInUser = {email: userEmail};
+            const loggedInUser = { email: userEmail };
             setUser(currentUser);
             setReload(false);
 
-            if(currentUser){
-                axios.post('http://localhost:5000/jwt', loggedInUser, {withCredentials: true})
-                .then(res => {
-                    console.log(res.data);
-                })
+            if (currentUser) {
+                axios.post('https://local-tours-and-guide-server-side.vercel.app/jwt', loggedInUser, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data);
+                    })
             }
-            else{
-                axios.post('http://localhost:5000/logOut', loggedInUser, {withCredentials: true})
-                .then(res => {
-                    console.log(res.data);
-                })
+            else {
+                axios.post('https://local-tours-and-guide-server-side.vercel.app/logOut', loggedInUser, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data);
+                    })
             }
         })
 
-        return () => {() => unsubscribe() };
+        return () => { () => unsubscribe() };
 
     }, [user?.email])
 

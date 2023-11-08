@@ -8,7 +8,7 @@ const MyServices = () => {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/myServices?email=${user.email}`, { credentials: 'include' })
+        fetch(`https://local-tours-and-guide-server-side.vercel.app/services/myServices?email=${user.email}`, { credentials: 'include' })
             .then(res => res.json())
             .then(data => {
                 setServices(data);

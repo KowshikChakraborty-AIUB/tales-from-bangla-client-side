@@ -10,7 +10,7 @@ const UpdateManageServices = () => {
 
     console.log(services);
 
-    const {_id , service_name, service_image, service_price, service_area, service_description} = services;
+    const { _id, service_name, service_image, service_price, service_area, service_description } = services;
 
 
     const handleUpdate = (e) => {
@@ -27,7 +27,7 @@ const UpdateManageServices = () => {
 
         const updateServices = { service_name, service_image, service_provider_name, service_provider_email, service_provider_image, service_price, service_area, service_description }
 
-        fetch(`http://localhost:5000/services/${_id}`, {
+        fetch(`https://local-tours-and-guide-server-side.vercel.app/services/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

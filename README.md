@@ -1,6 +1,6 @@
 # Tales From Bangla
 
-## Link:
+## Link: [https://tales-from-bangla.surge.sh/](https://tales-from-bangla.surge.sh/)
 
 # Features
 

@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
     const { login, googleLogIn } = useContext(AuthContext);
@@ -76,7 +77,7 @@ const Login = () => {
                                     </Link>
                                 </p>
                                 <div className="text-center">
-                                    <button onClick={handleGoogleLogIn} className="btn normal-case border-2 border-[#36D399] hover:border-[#36D399] hover:bg-none w-full my-4 text-black">Login with Google</button>
+                                    <button onClick={handleGoogleLogIn} className="btn normal-case border-2 border-[#36D399] hover:border-[#36D399] hover:bg-none w-full my-4 text-black"><FcGoogle/> Login with Google</button>
                                 </div>
                             </div>
                         </form>

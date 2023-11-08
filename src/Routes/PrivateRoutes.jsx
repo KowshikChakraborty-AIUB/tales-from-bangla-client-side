@@ -10,7 +10,9 @@ const PrivateRoutes = ({ children }) => {
     const location = useLocation();
 
     if (reload) {
-        return <div className="flex justify-center items-center min-h-screen text-5xl font-bold">Loading....</div>
+        return <div className="flex justify-center items-center min-h-screen text-5xl font-bold">
+            <img src="https://i.ibb.co/wrrLwNB/loading.gif" alt="" />
+        </div>
     }
     if (user) {
         return children;

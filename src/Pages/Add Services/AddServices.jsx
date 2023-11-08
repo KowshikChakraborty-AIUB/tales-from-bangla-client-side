@@ -31,6 +31,7 @@ const AddServices = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
+                    e.target.reset();
                     Swal.fire({
                         title: "Your service is added!",
                         text: "Check your My Services page & also Services page to see your added services",

@@ -8,7 +8,7 @@ const MyServices = () => {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/myServices?email=${user.email}`, {credentials: 'include'})
+        fetch(`http://localhost:5000/services/myServices?email=${user.email}`, { credentials: 'include' })
             .then(res => res.json())
             .then(data => {
                 setServices(data);
@@ -24,14 +24,19 @@ const MyServices = () => {
                         <>
                             <div className="card shadow-xl">
                                 <figure className="px-10 pt-10">
-                                    <img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-xl" />
+                                    <img src={service.service_image} alt="Shoes" className="rounded-xl h-4/5 w-4/5" />
                                 </figure>
                                 <div className="card-body items-center">
                                     <h2 className="card-title">{service.service_name}</h2>
                                     <p className="font-bold">{service.service_description}</p>
-                                    <p className="font-bold">Provider: {service.service_provider_name}</p>
+                                    <div className='flex gap-2'>
+                                        <img className='h-7 rounded-full' src={service.service_provider_image} alt="" />
+                                        <p className='font-bold'>
+                                            {service.service_provider_name}
+                                        </p>
+                                    </div>
                                     <p className="font-bold">Price: {service.service_price}</p>
-                                    
+
                                 </div>
                             </div>
                         </>

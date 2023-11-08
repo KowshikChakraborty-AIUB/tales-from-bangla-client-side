@@ -25,8 +25,9 @@ const SingleServiceDetails = () => {
         const userEmail = form.userEmail.value;
         const bookingDate = form.bookingDate.value;
         const userAddress = form.userAddress.value;
+        const serviceImage = singleService.service_image;
 
-        const bookings = { serviceName, userEmail, bookingDate, userAddress }
+        const bookings = { serviceImage, serviceName, userEmail, bookingDate, userAddress }
 
         fetch('http://localhost:5000/bookings', {
             method: 'POST',
@@ -49,26 +50,31 @@ const SingleServiceDetails = () => {
 
     useEffect(() => {
         const otherServicesByEmail = singleServiceData.filter(service => service?.service_provider_email === singleService?.service_provider_email)
-            setOtherServices(otherServicesByEmail);
-            console.log(otherServicesByEmail);
+        setOtherServices(otherServicesByEmail);
+        console.log(otherServicesByEmail);
     }, [singleService.service_provider_email, singleServiceData])
 
-   // console.log(otherServices);
+    // console.log(otherServices);
 
     return (
         <div>
             <div className="py-20">
                 <p className="text-5xl font-bold pb-10">Provider: {singleService.service_provider_name}</p>
                 <img src="" alt="" />
-                <p className="text-2xl font-bold">Area:</p>
+                <p className="text-2xl font-bold">Area: {singleService.service_area}</p>
 
             </div>
             <div className="card card-side bg-base-100 shadow-xl flex-col">
-                <figure><img src="/images/stock/photo-1635805737707-575885ab0820.jpg" alt="Movie" /></figure>
+                <figure><img className='h-4/5 w-4/5' src={singleService.service_image} alt="Movie" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{singleService.service_name}</h2>
                     <p className='font-semibold'>{singleService.service_description}</p>
-                    <p className='font-semibold'>Provider: {singleService.service_provider_name}</p>
+                    <div className='flex gap-2'>
+                        <img className='h-7 rounded-full' src={singleService.service_provider_image} alt="" />
+                        <p className='font-bold'>
+                            {singleService.service_provider_name}
+                        </p>
+                    </div>
                     <p className='font-semibold'>Price: {singleService.service_price}</p>
                     <div className="card-actions justify-end">
                         <button className="btn btn-success normal-case" onClick={() => document.getElementById('my_modal_5').showModal()}>Book Now</button>
@@ -106,10 +112,10 @@ const SingleServiceDetails = () => {
             </div>
 
             <div>
-            <p className={`text-3xl font-bold text-center py-20 ${otherServices.length === 0 && 'hidden'}`}>Also see other services of this provider</p>
+                <p className={`text-3xl font-bold text-center py-20 ${otherServices.length === 1 && 'hidden'}`}>Also see other services of this provider</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {
-                        otherServices.length === 0
+                        otherServices.length === 1
                             ?
                             ''
                             :

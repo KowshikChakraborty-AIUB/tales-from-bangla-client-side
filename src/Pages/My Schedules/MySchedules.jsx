@@ -8,7 +8,7 @@ const MySchedules = () => {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/bookings?email=${user.email}`)
+        fetch(`http://localhost:5000/bookings?email=${user.email}`, {credentials: 'include'})
             .then(res => res.json())
             .then(data => {
                 setBookings(data);

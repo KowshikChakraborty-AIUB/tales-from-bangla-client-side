@@ -1,6 +1,7 @@
 import AboutUs from "../../components/About Us/AboutUs";
 import Banner from "../../components/Banner/Banner";
 import DownloadMobileApp from "../../components/Download Mobile App/DownloadMobileApp";
+import OurTeamMembers from "../../components/Our Team Members/OurTeamMembers";
 import WellKnownServices from "../../components/Well Known Services/WellKnownServices";
 import { Link, useLoaderData } from "react-router-dom";
 
@@ -29,6 +30,7 @@ const Home = () => {
                 </div>
 
             </div>
+            <OurTeamMembers></OurTeamMembers>
             <DownloadMobileApp></DownloadMobileApp>
         </div>
     );

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const OtherServicesByProvider = ({ otherService }) => {
     return (
             <div className="card card-side bg-base-100 shadow-xl flex-col">
-                <figure><img src="/images/stock/photo-1635805737707-575885ab0820.jpg" alt="Movie" /></figure>
+                <figure><img className='h-4/5 w-4/5' src={otherService.service_image} alt="Movie" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{otherService.service_name}</h2>
                     <p className='font-semibold'>{otherService.service_description}</p>

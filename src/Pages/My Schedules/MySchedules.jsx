@@ -30,7 +30,7 @@ const MySchedules = () => {
                             <>
                                 <div className="card bg-base-100 shadow-xl">
                                     <figure className="px-10 pt-10">
-                                        <img src={booking.serviceImage} alt="Shoes" className="rounded-xl" />
+                                        <img src={booking.serviceImage} alt="Shoes" className="rounded-xl className='h-4/5 w-4/5'" />
                                     </figure>
                                     <div className="card-body items-center">
                                         <h2 className="card-title">{booking.serviceName}</h2>
